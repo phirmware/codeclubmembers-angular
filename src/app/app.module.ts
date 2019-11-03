@@ -9,13 +9,14 @@ import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DetailsComponent } from './details/details.component';
+import { AuthService } from './auth.service';
 
 const routes: Routes = [
   { path: '', redirectTo: 'members', pathMatch: 'full' },
   { component: MembersComponent, path: 'members' },
   { component: SignupComponent, path: 'signup' },
   { component: LoginComponent, path: 'login' },
-  { component: DashboardComponent, path: 'dashboard' },
+  { component: DashboardComponent, path: 'dashboard', canActivate: [AuthService] },
   { component: DetailsComponent, path: 'members/:username' },
 ];
 
