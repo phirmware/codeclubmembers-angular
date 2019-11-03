@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { LoginService } from './login.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ServerResponse } from '../models/server-response';
@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, OnDestroy {
   constructor(private service: LoginService, private router: Router) {}
 
   ngOnInit() {}
@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit {
     e.preventDefault();
     this.service.login({ username, password }).subscribe(
       (response: ServerResponse) => {
+        localStorage.removeItem('token');
         localStorage.setItem('token', response.token);
         this.router.navigate(['/dashboard']);
       },
@@ -29,4 +30,6 @@ export class LoginComponent implements OnInit {
       }
     );
   }
+
+  ngOnDestroy() {}
 }

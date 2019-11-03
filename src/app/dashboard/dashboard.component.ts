@@ -13,12 +13,10 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.service.getUserProfile().subscribe(response => {
-      console.log(response);
       this.profile = response;
     });
 
     this.service.getUserProjects().subscribe(response => {
-      console.log(response);
       this.projects = response;
     });
   }

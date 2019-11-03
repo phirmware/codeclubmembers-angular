@@ -2,24 +2,31 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { HttpHeaders } from '@angular/common/http';
+import { reject } from 'q';
 
 @Injectable({
   providedIn: 'root',
 })
 export class DashboardService {
   url = environment.url;
+  token: string;
   constructor(private http: HttpClient) {}
-  httpOptions = {
-    headers: new HttpHeaders({
-      Authorization: `Bearer ${localStorage.getItem('token')}`,
-    }),
-  };
 
   getUserProfile() {
-    return this.http.get(`${this.url}/api/user/profile`, this.httpOptions);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+      }),
+    };
+    return this.http.get(`${this.url}/api/user/profile`, httpOptions);
   }
 
   getUserProjects() {
-    return this.http.get(`${this.url}/api/project`, this.httpOptions);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+      }),
+    };
+    return this.http.get(`${this.url}/api/project`, httpOptions);
   }
 }

@@ -8,6 +8,7 @@ import { MembersComponent } from './members/members.component';
 import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { DetailsComponent } from './details/details.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'members', pathMatch: 'full' },
@@ -15,10 +16,11 @@ const routes: Routes = [
   { component: SignupComponent, path: 'signup' },
   { component: LoginComponent, path: 'login' },
   { component: DashboardComponent, path: 'dashboard' },
+  { component: DetailsComponent, path: 'members/:username' },
 ];
 
 @NgModule({
-  declarations: [AppComponent, MembersComponent, SignupComponent, LoginComponent, DashboardComponent],
+  declarations: [AppComponent, MembersComponent, SignupComponent, LoginComponent, DashboardComponent, DetailsComponent],
   imports: [BrowserModule, RouterModule.forRoot(routes), HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
