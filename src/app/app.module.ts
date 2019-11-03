@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { MembersComponent } from './members/members.component';
@@ -18,7 +19,7 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [AppComponent, MembersComponent, SignupComponent, LoginComponent, DashboardComponent],
-  imports: [BrowserModule, RouterModule.forRoot(routes)],
+  imports: [BrowserModule, RouterModule.forRoot(routes), HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })
