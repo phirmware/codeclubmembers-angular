@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +11,7 @@ export class AppComponent implements OnInit {
   constructor(private router: Router) {}
   title = 'codeclub-members';
   routerPath: any = '/members';
+  helper = new JwtHelperService();
 
   ngOnInit() {
   }
@@ -21,4 +23,11 @@ export class AppComponent implements OnInit {
     }
     e.target.classList.add('mm-active');
   }
+
+  isLoggedIn() {
+    const token = localStorage.getItem('token');
+    const isTokenExpired = this.helper.isTokenExpired(token);
+    return !isTokenExpired;
+  }
+
 }

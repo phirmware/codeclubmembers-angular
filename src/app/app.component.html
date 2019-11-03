@@ -519,19 +519,19 @@
                                     </i>Members
                                 </a>
                             </li>
-                            <li>
+                            <li *ngIf="!isLoggedIn()">
                                 <a routerLink="/signup" class="sidenav" (click)="setRouterPath($event)">
                                     <i class="metismenu-icon pe-7s-eyedropper">
                                     </i>Create Account
                                 </a>
                             </li>
-                            <li>
+                            <li *ngIf="!isLoggedIn()">
                                 <a routerLink="/login" class="sidenav" (click)="setRouterPath($event)">
                                     <i class="metismenu-icon pe-7s-pendrive">
                                     </i>Login
                                 </a>
                             </li>
-                            <li>
+                            <li *ngIf="isLoggedIn()">
                               <a routerLink="/dashboard" class="sidenav" (click)="setRouterPath($event)">
                                   <i class="metismenu-icon pe-7s-pendrive">
                                   </i>Dashboard
