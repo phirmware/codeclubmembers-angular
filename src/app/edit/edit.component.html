@@ -1,0 +1,91 @@
+<div class="app-main__outer">
+  <div class="app-main__inner">
+    <div class="row">
+      <div class="col-md-6 col-lg-6">
+        <div class="main-card mb-3 card">
+          <div class="card-body">
+            <h5 class="card-title">Edit Profile</h5>
+            <div>
+              <div class="input-group">
+                <div class="input-group-prepend"><span class="input-group-text">Username</span></div>
+                <input type="text" class="form-control" [(ngModel)]="username">
+              </div>
+              <br>
+              <div class="input-group">
+                <div class="input-group-prepend"><span class="input-group-text">Role</span></div>
+                <input type="text" class="form-control" [(ngModel)]="role">
+              </div>
+              <br>
+              <div class="input-group">
+                <div class="input-group-prepend"><span class="input-group-text">Display Image</span></div>
+                <input type="text" class="form-control" [(ngModel)]="display_image">
+              </div>
+              <br>
+              <div class="input-group">
+                <div class="input-group-prepend"><span class="input-group-text">Status</span></div>
+                <input type="text" class="form-control" [(ngModel)]="status">
+              </div>
+              <br>
+              <div class="input-group">
+                <button class="btn btn-secondary" (click)="editProfile()" [disabled]="loading">Edit</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="main-card mb-3 card">
+          <div class="card-body">
+            <h5 class="card-title">Add a Project</h5>
+            <div>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <button class="btn btn-secondary">Project Name</button>
+                </div>
+                <input type="text" #name class="form-control">
+              </div>
+              <br>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <button class="btn btn-secondary">Description</button>
+                </div>
+                <input type="text" #summary class="form-control">
+              </div>
+              <br>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <button class="btn btn-secondary">Project Link</button>
+                </div>
+                <input type="text" #project_url class="form-control">
+              </div>
+              <br>
+              <br>
+              <button class="btn btn-secondary" (click)="addProject(name.value, summary.value, project_url.value)">Submit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-6">
+        <div class="mb-3 card">
+          <div class="card-header-tab card-header">
+            <div class="card-header-title">
+              <i class="header-icon lnr-rocket icon-gradient bg-tempting-azure"> </i>
+              Display Card
+            </div>
+          </div>
+          <div class="main-card m-4 mb-3 card">
+            <div class="card-body">
+              <h5 class="card-title">Username</h5>
+              <h6 class="mb-0 card-subtitle text-capitalize">Dev</h6>
+            </div>
+            <img width="100%"
+              src="https://images.unsplash.com/photo-1542103749-8ef59b94f47e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+              alt="Card image cap">
+            <div class="card-body">
+              Status
+            </div>
+            <button disabled class="btn btn-primary">Take a Peek</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

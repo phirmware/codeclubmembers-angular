@@ -9,10 +9,12 @@ import { DashboardService } from './dashboard.service';
 export class DashboardComponent implements OnInit {
   profile: any;
   projects: any;
+  loading = true;
   constructor(private service: DashboardService) {}
 
   ngOnInit() {
     this.service.getUserProfile().subscribe(response => {
+      this.loading = false;
       this.profile = response;
     });
 

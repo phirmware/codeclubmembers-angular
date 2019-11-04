@@ -24,6 +24,11 @@ export class AppComponent implements OnInit {
     e.target.classList.add('mm-active');
   }
 
+  logOut() {
+    localStorage.removeItem('token');
+    this.router.navigate(['/login']);
+  }
+
   isLoggedIn() {
     const token = localStorage.getItem('token');
     const isTokenExpired = this.helper.isTokenExpired(token);

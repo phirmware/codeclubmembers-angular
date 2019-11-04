@@ -98,7 +98,7 @@
           </div>
           <div class="position-relative row form-check">
             <div class="col-sm-10 offset-sm-2">
-              <button class="btn btn-secondary" (click)="register($event, username.value, password.value, role.value, status.value, display_image.value)">Create Card</button>
+              <button class="btn btn-secondary" [disabled]="loading" (click)="register($event, username.value, password.value, role.value, status.value, display_image.value)">Create Card</button>
             </div>
           </div>
         </form>

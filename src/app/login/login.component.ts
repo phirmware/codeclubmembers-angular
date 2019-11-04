@@ -10,11 +10,19 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit, OnDestroy {
+
+  loading = false;
+
   constructor(private service: LoginService, private router: Router) {}
 
   ngOnInit() {}
 
   login(e, username: string, password: string) {
+    this.loading = true;
+    if (!username || !password) {
+      this.loading = false;
+      return;
+    }
     e.preventDefault();
     this.service.login({ username, password }).subscribe(
       (response: ServerResponse) => {
@@ -23,6 +31,7 @@ export class LoginComponent implements OnInit, OnDestroy {
         this.router.navigate(['/dashboard']);
       },
       (errorMessage: HttpErrorResponse) => {
+        this.loading = false;
         const {
           error: { message },
         } = errorMessage;

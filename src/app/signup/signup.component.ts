@@ -10,6 +10,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./signup.component.css'],
 })
 export class SignupComponent implements OnInit {
+
+  loading = false;
+
   constructor(private service: SignupService, private router: Router) {}
 
   ngOnInit() {}
@@ -28,8 +31,10 @@ export class SignupComponent implements OnInit {
   }
 
   register(e, username: string, password: string, role: string, status: string, display_image: string) {
+    this.loading = true;
     e.preventDefault();
     if (!username || !password || !role || !status || !display_image) {
+      this.loading = false;
       return;
     }
     const urlValid = this.validURL(display_image);
@@ -42,6 +47,7 @@ export class SignupComponent implements OnInit {
         this.router.navigate(['/dashboard']);
       },
       (error: HttpErrorResponse) => {
+        this.loading = false;
         console.log(error);
       }
     );

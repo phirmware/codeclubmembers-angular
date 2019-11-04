@@ -1,4 +1,6 @@
-<div class="app-main__outer">
+<app-loading *ngIf="loading"></app-loading>
+
+<div class="app-main__outer" *ngIf="!loading">
   <div class="app-main__inner">
     <div class="app-page-title">
       <div class="page-title-wrapper">
@@ -18,51 +20,9 @@
             <i class="fa fa-star"></i>
           </button>
           <div class="d-inline-block dropdown">
-            <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-              class="btn-shadow dropdown-toggle btn btn-info">
-              <span class="btn-icon-wrapper pr-2 opacity-7">
-                <i class="fa fa-business-time fa-w-20"></i>
-              </span>
-              Buttons
+            <button type="button" class="btn-shadow btn btn-info" routerLink="/edit">
+              Manage Your Account
             </button>
-            <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
-              <ul class="nav flex-column">
-                <li class="nav-item">
-                  <a href="javascript:void(0);" class="nav-link">
-                    <i class="nav-link-icon lnr-inbox"></i>
-                    <span>
-                      Inbox
-                    </span>
-                    <div class="ml-auto badge badge-pill badge-secondary">86</div>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="javascript:void(0);" class="nav-link">
-                    <i class="nav-link-icon lnr-book"></i>
-                    <span>
-                      Book
-                    </span>
-                    <div class="ml-auto badge badge-pill badge-danger">5</div>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="javascript:void(0);" class="nav-link">
-                    <i class="nav-link-icon lnr-picture"></i>
-                    <span>
-                      Picture
-                    </span>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a disabled href="javascript:void(0);" class="nav-link disabled">
-                    <i class="nav-link-icon lnr-file-empty"></i>
-                    <span>
-                      File Disabled
-                    </span>
-                  </a>
-                </li>
-              </ul>
-            </div>
           </div>
         </div>
       </div>
@@ -171,7 +131,8 @@
                     <h5 class="m-0 p-0">{{ project?.name }}</h5>
                   </button>
                 </div>
-                <div data-parent="#accordion" [id]="'collapseOne'+ i.toString()" aria-labelledby="headingOne" class="collapse show">
+                <div data-parent="#accordion" [id]="'collapseOne'+ i.toString()" aria-labelledby="headingOne"
+                  class="collapse">
                   <div class="card-body">
                     {{ project?.summary }}
                     <br />
@@ -210,32 +171,13 @@
     <div class="app-footer">
       <div class="app-footer__inner">
         <div class="app-footer-left">
-          <ul class="nav">
-            <li class="nav-item">
-              <a href="javascript:void(0);" class="nav-link">
-                Footer Link 1
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="javascript:void(0);" class="nav-link">
-                Footer Link 2
-              </a>
-            </li>
-          </ul>
+
         </div>
         <div class="app-footer-right">
           <ul class="nav">
             <li class="nav-item">
-              <a href="javascript:void(0);" class="nav-link">
-                Footer Link 3
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="javascript:void(0);" class="nav-link">
-                <div class="badge badge-success mr-1 ml-0">
-                  <small>NEW</small>
-                </div>
-                Footer Link 4
+              <a target="blank" href="https://twitter.com/phirmware" class="nav-link">
+                Hola @phirmware
               </a>
             </li>
           </ul>

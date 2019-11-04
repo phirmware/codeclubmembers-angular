@@ -10,11 +10,13 @@ import { ServerResponse } from '../models/server-response';
 })
 export class MembersComponent implements OnInit {
   members: any;
+  loading = true;
   constructor(private service: MembersService) {}
 
   ngOnInit() {
     this.service.getAllMembers().subscribe(
       (response: ServerResponse) => {
+        this.loading = false;
         this.members = response.data;
       },
       (error: HttpErrorResponse) => {
