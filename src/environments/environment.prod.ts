@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  url: 'https://codeclubnode.herokuapp.com/'
+  url: 'https://codeclubnode.herokuapp.com'
 };
