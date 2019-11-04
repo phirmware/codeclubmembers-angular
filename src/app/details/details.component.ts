@@ -14,6 +14,7 @@ export class DetailsComponent implements OnInit {
   profile: any;
   userId: string;
   projects: any;
+  loading = true;
 
   constructor(private route: ActivatedRoute, private service: DetailsService) {}
 
@@ -22,6 +23,7 @@ export class DetailsComponent implements OnInit {
     this.service.viewProfile(this.username).subscribe((response: ServerResponse) => {
       this.profile = response;
       this.userId = this.profile._id;
+      this.loading = false;
       this.viewUsersProjects(this.userId);
     });
   }
