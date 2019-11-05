@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MembersService } from './members.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ServerResponse } from '../models/server-response';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-members',
@@ -11,7 +12,7 @@ import { ServerResponse } from '../models/server-response';
 export class MembersComponent implements OnInit {
   members: any;
   loading = true;
-  constructor(private service: MembersService) {}
+  constructor(private service: MembersService, private authService: AuthService) {}
 
   ngOnInit() {
     this.service.getAllMembers().subscribe(
@@ -48,5 +49,9 @@ export class MembersComponent implements OnInit {
         console.log(error);
       }
     );
+  }
+
+  isLoggedIn() {
+    return this.authService.isLoggedIn();
   }
 }

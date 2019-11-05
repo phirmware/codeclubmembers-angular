@@ -22,7 +22,7 @@
         <div class="row">
           <div class="col-md-4" *ngFor="let member of members">
             <button type="button" data-toggle="tooltip" title="Example Tooltip" data-placement="bottom"
-              class="btn-shadow mr-3 btn btn-dark" (click)="starAUser($event, member?._id)">
+              class="btn-shadow mr-3 btn btn-dark" (click)="starAUser($event, member?._id)" *ngIf="isLoggedIn()">
               <i class="fa fa-star" (click)="bubble($event, member?._id)"></i>
             </button>
             <div class="main-card mb-3 card">

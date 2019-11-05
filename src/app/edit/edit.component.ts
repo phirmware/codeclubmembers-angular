@@ -37,6 +37,11 @@ export class EditComponent implements OnInit {
     );
   }
 
+  logOut() {
+    localStorage.removeItem('token');
+    this.router.navigate(['/login']);
+  }
+
   editProfile() {
     this.service
       .editProfile({ username: this.username, role: this.role, display_image: this.display_image, status: this.status })

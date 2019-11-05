@@ -73,18 +73,19 @@
           </div>
           <div class="main-card m-4 mb-3 card">
             <div class="card-body">
-              <h5 class="card-title">Username</h5>
-              <h6 class="mb-0 card-subtitle text-capitalize">Dev</h6>
+              <h5 class="card-title">{{ username }}</h5>
+              <h6 class="mb-0 card-subtitle text-capitalize">{{ role }}</h6>
             </div>
             <img width="100%"
-              src="https://images.unsplash.com/photo-1542103749-8ef59b94f47e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+              [src]="display_image"
               alt="Card image cap">
             <div class="card-body">
-              Status
+              {{ status }}
             </div>
             <button disabled class="btn btn-primary">Take a Peek</button>
           </div>
         </div>
+        <button class="btn btn-danger btn-block mb-3" (click)="logOut()">Logout</button>
       </div>
     </div>
   </div>
