@@ -1,0 +1,30 @@
+<div class="app-main__outer" *ngIf="!loading" style="min-width: 98vw;">
+  <div class="app-main__inner">
+    <div class="app-page-title">
+      <div class="page-title-wrapper">
+        <div class="page-title-heading">
+          <div class="page-title-icon">
+            <i class="pe-7s-car icon-gradient bg-mean-fruit">
+            </i>
+          </div>
+          <div>{{post?.title}}
+            <div class="page-title-subheading">{{post?.summary}}
+            </div>
+          </div>
+        </div>
+        <div class="page-title-actions">
+          <div class="d-inline-block dropdown">
+            <button type="button" class="btn-shadow btn btn-info" (click)="likePost()" *ngIf="isLoggedIn()">
+              <i class="metismenu-icon pe-7s-like">
+              </i>
+              like
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    {{ post?.content }}
+  </div>
+</div>
