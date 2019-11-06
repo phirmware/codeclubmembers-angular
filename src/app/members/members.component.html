@@ -17,7 +17,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-md-4" *ngFor="let member of members">
+      <div class="col-md-4" *ngFor="let member of members?.reverse()">
         <button type="button" data-toggle="tooltip" title="Example Tooltip" data-placement="bottom"
           class="btn-shadow mr-3 btn btn-dark" (click)="starAUser($event, member?._id)" *ngIf="isLoggedIn()">
           <i class="fa fa-star" (click)="bubble($event, member?._id)"></i>

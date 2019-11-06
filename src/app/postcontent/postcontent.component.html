@@ -4,8 +4,7 @@
       <div class="page-title-wrapper">
         <div class="page-title-heading">
           <div class="page-title-icon">
-            <i class="pe-7s-car icon-gradient bg-mean-fruit">
-            </i>
+            <img [src]="post?.user_details?.display_image" alt="" style="width: 80px; height: 80px;margin: -15px;">
           </div>
           <div>{{post?.title}}
             <div class="page-title-subheading">{{post?.summary}}
@@ -24,7 +23,7 @@
       </div>
     </div>
   </div>
-  <div>
+  <div class="m-5">
     {{ post?.content }}
   </div>
 </div>

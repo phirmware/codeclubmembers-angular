@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CreatepostService } from './createpost.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { ServerResponse } from '../models/server-response';
 
 @Component({
   selector: 'app-createpost',
@@ -8,7 +10,7 @@ import { HttpErrorResponse } from '@angular/common/http';
   styleUrls: ['./createpost.component.css'],
 })
 export class CreatepostComponent implements OnInit {
-  constructor(private service: CreatepostService) {}
+  constructor(private service: CreatepostService, private router: Router) {}
 
   ngOnInit() {}
 
@@ -17,8 +19,9 @@ export class CreatepostComponent implements OnInit {
       return;
     }
     this.service.createPost({ title, summary, content }).subscribe(
-      response => {
+      (response: ServerResponse) => {
         console.log(response);
+        this.router.navigate([`/post/${response._id}`]);
       },
       (error: HttpErrorResponse) => {
         console.log(error);
