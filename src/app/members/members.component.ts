@@ -19,6 +19,7 @@ export class MembersComponent implements OnInit {
       (response: ServerResponse) => {
         this.loading = false;
         this.members = response.data;
+        this.members = this.members.reverse();
       },
       (error: HttpErrorResponse) => {
         console.log(error);

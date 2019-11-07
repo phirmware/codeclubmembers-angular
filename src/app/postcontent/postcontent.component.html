@@ -13,10 +13,15 @@
         </div>
         <div class="page-title-actions">
           <div class="d-inline-block dropdown">
-            <button type="button" class="btn-shadow btn btn-info" (click)="likePost()" *ngIf="isLoggedIn()">
+            <button type="button" class="btn-shadow btn btn-info" (click)="likePost()" *ngIf="isLoggedIn() && !liked">
               <i class="metismenu-icon pe-7s-like">
               </i>
-              like
+
+            </button>
+            <button type="button" class="btn-shadow btn btn-warning" *ngIf="isLoggedIn() && liked">
+              <i class="metismenu-icon pe-7s-like">
+              </i>
+
             </button>
           </div>
         </div>
