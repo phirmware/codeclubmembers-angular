@@ -30,6 +30,7 @@ export class PostcontentComponent implements OnInit {
     this.service.getPost(this.id).subscribe(
       response => {
         this.post = response;
+        console.log(response);
         const userThatLikedIds = this.post.users_that_liked.map((item: { _id: any }) => {
           return item._id;
         });

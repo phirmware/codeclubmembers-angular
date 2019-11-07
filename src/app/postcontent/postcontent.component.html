@@ -13,15 +13,16 @@
         </div>
         <div class="page-title-actions">
           <div class="d-inline-block dropdown">
-            <button type="button" class="btn-shadow btn btn-info" (click)="likePost()" *ngIf="isLoggedIn() && !liked">
-              <i class="metismenu-icon pe-7s-like">
+            <button type="button" class="btn-shadow btn btn-transparent" (click)="likePost()"
+              *ngIf="isLoggedIn() && !liked" style="font-size: 1.3rem;">
+              <i class="metismenu-icon pe-7s-like" style="font-weight: bolder;">
               </i>
-
+              {{post?.number_of_likes}}
             </button>
-            <button type="button" class="btn-shadow btn btn-warning" *ngIf="isLoggedIn() && liked">
-              <i class="metismenu-icon pe-7s-like">
+            <button type="button" class="btn-shadow btn btn-transparent" *ngIf="isLoggedIn() && liked">
+              <i class="fa fa-heart" style="font-weight: bold;color: red;font-size: 1.3rem;">
               </i>
-
+              {{post?.number_of_likes}}
             </button>
           </div>
         </div>
