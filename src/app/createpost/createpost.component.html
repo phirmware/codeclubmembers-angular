@@ -17,13 +17,12 @@
               </div>
               <br>
               <div class="input-group">
-                <div class="input-group-prepend"><span class="input-group-text">Content</span></div>
-                <input type="text" #content class="form-control">
+                <ckeditor data="<p>Content Here</p>" (change)="onChange($event)" style="width: 100%;"></ckeditor>
               </div>
               <br>
               <div class="input-group">
                 <button class="btn btn-secondary"
-                  (click)="createPost(title.value, summary.value, content.value)">Submit</button>
+                  (click)="createPost(title.value, summary.value)">Submit</button>
               </div>
             </div>
           </div>

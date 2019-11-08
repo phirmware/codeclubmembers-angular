@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { CKEditorModule } from 'ckeditor4-angular';
 
 import { AppComponent } from './app.component';
 import { MembersComponent } from './members/members.component';
@@ -33,7 +34,7 @@ const routes: Routes = [
 @NgModule({
   declarations: [AppComponent, MembersComponent, SignupComponent, LoginComponent,
      DashboardComponent, DetailsComponent, EditComponent, LoadingComponent, CommunityComponent, CreatepostComponent, PostcontentComponent],
-  imports: [BrowserModule, RouterModule.forRoot(routes), HttpClientModule, FormsModule],
+  imports: [BrowserModule, RouterModule.forRoot(routes), HttpClientModule, FormsModule, CKEditorModule],
   providers: [],
   bootstrap: [AppComponent],
 })

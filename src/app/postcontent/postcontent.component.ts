@@ -17,6 +17,7 @@ export class PostcontentComponent implements OnInit {
   token: string;
   loggedOnUserId: string;
   liked = false;
+  numberOfLikes: number;
 
   constructor(private service: PostcontentService, private route: ActivatedRoute, private authService: AuthService) {}
 
@@ -30,6 +31,7 @@ export class PostcontentComponent implements OnInit {
     this.service.getPost(this.id).subscribe(
       response => {
         this.post = response;
+        this.numberOfLikes = this.post.number_of_likes;
         console.log(response);
         const userThatLikedIds = this.post.users_that_liked.map((item: { _id: any }) => {
           return item._id;
@@ -47,6 +49,7 @@ export class PostcontentComponent implements OnInit {
   }
 
   likePost() {
+    this.numberOfLikes ++;
     this.liked = true;
     this.service.likePost(this.id).subscribe(
       response => {

@@ -9,6 +9,7 @@
           <div>{{post?.title}}
             <div class="page-title-subheading">{{post?.summary}}
             </div>
+            <button class="btn btn-outline-secondary mt-2" routerLink="/community">Back</button>
           </div>
         </div>
         <div class="page-title-actions">
@@ -17,19 +18,18 @@
               *ngIf="isLoggedIn() && !liked" style="font-size: 1.3rem;">
               <i class="metismenu-icon pe-7s-like" style="font-weight: bolder;">
               </i>
-              {{post?.number_of_likes}}
+              {{numberOfLikes}}
             </button>
-            <button type="button" class="btn-shadow btn btn-transparent" *ngIf="isLoggedIn() && liked">
+            <button type="button" class="btn-shadow btn btn-transparent" *ngIf="isLoggedIn() && liked" style="font-size: 1.3rem;">
               <i class="fa fa-heart" style="font-weight: bold;color: red;font-size: 1.3rem;">
               </i>
-              {{post?.number_of_likes}}
+              {{numberOfLikes}}
             </button>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="m-5">
-    {{ post?.content }}
+  <div class="m-5" [innerHTML]="post?.content">
   </div>
 </div>

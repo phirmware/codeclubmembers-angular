@@ -17,6 +17,7 @@ export class CommunityComponent implements OnInit {
     this.service.getPosts().subscribe(
       response => {
         this.posts = response;
+        this.posts = this.posts.reverse();
       },
       (error: HttpErrorResponse) => {
         console.log(error);

@@ -3,6 +3,7 @@ import { CreatepostService } from './createpost.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { ServerResponse } from '../models/server-response';
+import { CKEditor4 } from 'ckeditor4-angular';
 
 @Component({
   selector: 'app-createpost',
@@ -10,15 +11,22 @@ import { ServerResponse } from '../models/server-response';
   styleUrls: ['./createpost.component.css'],
 })
 export class CreatepostComponent implements OnInit {
+
+  content: string;
+
   constructor(private service: CreatepostService, private router: Router) {}
 
   ngOnInit() {}
 
-  createPost(title: string, summary: string, content: string) {
-    if (!title || !summary || !content) {
+  public onChange(event: CKEditor4.EventInfo) {
+    this.content = event.editor.getData();
+  }
+
+  createPost(title: string, summary: string) {
+    if (!title || !summary || !this.content) {
       return;
     }
-    this.service.createPost({ title, summary, content }).subscribe(
+    this.service.createPost({ title, summary, content: this.content }).subscribe(
       (response: ServerResponse) => {
         console.log(response);
         this.router.navigate([`/post/${response._id}`]);
